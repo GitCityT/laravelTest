@@ -14,7 +14,8 @@
   	<table class="table table-hover table-bordered">
 	    <thead>
 	    <tr>
-			<th colspan="4"><a href="{{ route ('custom.create') }}">Add Custom</a></th>
+	    	<th ><image style="height:25px" src="{{ $avatar }}"/></th>
+			<th colspan="3"><a href="{{ route ('custom.create') }}">Add Custom</a></th>
 	    </tr>
 	      <tr>
 	        <th>CustomName</th>
@@ -55,7 +56,7 @@ function customDelete(dom){
             type: 'DELETE',
             dataType: "JSON",
             data: {
-                "_token": $('input[name="T_csrf_token"]').val()
+                "_token": $('meta[name="csrf-token"]').attr('content')
             },
             success: function (response)
             {
