@@ -61,7 +61,7 @@ class CustomController extends Controller
 	public function update(Request $request,$id){
 		$validator = $request->validated();
 		$custom=[
-			'name'=>$validator【'name']
+			'name'=>$validator['name']
 		];
 		if(Custom::where('id',$id)->update($custom))
 			return redirect()->route('custom.index');
