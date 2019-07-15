@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class TestService extends ServiceProvider
+class TestServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -26,6 +26,11 @@ class TestService extends ServiceProvider
      */
     public function boot()
     {
+        //视图间共享数据
+        view()->share('project_name','LaravelTest');
         //
+        view()->composer('custom.index',function($view){
+            $view->with('avatar','/images/logo.png');
+        });//指定视图绑定数据
     }
 }
